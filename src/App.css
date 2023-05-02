@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #DD0000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+.question-container
+{
+  background-color: #ED776F;
+  border-radius: 5px;
+  height: 50vh;
+  width: 85vh;
+  color: white;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-left: 50px;
+  font-size: 20px;
+}
+.answers-with-submit{
+  display: flex;
+  justify-content: space-around;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.answers{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 25vh;
+  justify-content: space-around;
+}
+
+.answer
+{
+  background-color: white;
+  width: 35vh;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}
+.answer:hover,.answer:focus
+{
+  background-color: yellow;
+  cursor: pointer;
+}
+.submit
+{
+  background-color: red;
   color: white;
+  font-weight: bolder;
+  width: 15vh;
+  height: 5vh; 
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  top: 50%;
+  transform: translate(-50%,190%);
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.submit:hover
+{
+  background-color: rgb(192, 0, 0);
+  cursor: pointer;
+} 
