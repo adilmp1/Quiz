@@ -6,6 +6,8 @@ export default function Questions(props) {
     const setScore = props.setScore;
     const chosen = props.chosen;
     const setChosen = props.setChosen;
+    const wrong = props.wrong;
+    const setWrong = props.setWrong;
     return (
     <div>
       <h2>{questions[index].question}</h2>
@@ -51,15 +53,20 @@ export default function Questions(props) {
               const ans2 = questions[index].ans2;  
               const ans3 = questions[index].ans3;  
               const ans4 = questions[index].ans4;  
-              if(chosen!=ans1 && chosen!=ans2 && chosen!=ans3 && chosen!=ans3)
+              if(chosen!==ans1 && chosen!==ans2 && chosen!==ans3 && chosen!==ans4)
               {
                 alert('Please Choose one option')
               }
               else
               {
-                if (questions[index].correct === chosen) {
+                if (questions[index].correct === chosen) 
+                {
                   setScore(score + 1);
-                  }
+                }
+                else
+                {
+                  setWrong([...wrong,{qNo:index+1,yourAns:chosen,correctAns:questions[index].correct}])
+                }
                 setIndex(index + 1);
               }
             }

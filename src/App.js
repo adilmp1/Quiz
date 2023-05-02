@@ -23,7 +23,7 @@ const questions = [
   },
   {
     question: "3. Who is popularly known as the “Iron Man” of India",
-    ans1: "Lal Bahadur Shastri",  
+    ans1: "Lal Bahadur Shastri",
     ans2: "Sardar Vallabh Bhai Patel",
     ans3: "Mahatma Gandhi",
     ans4: "Dr. B.R Ambedkar",
@@ -50,24 +50,36 @@ function App() {
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState();
   const [score, setScore] = useState(0);
-  const [val,setVal] = useState(0);
-  const [name,setName] = useState()
-  if(val===0)
-  {
-    return(
+  const [val, setVal] = useState(0);
+  const [wrong, setWrong] = useState([]);
+  const [name, setName] = useState();
+  if (val === 0) {
+    return (
       <div className="App">
         <div className="question-container">
           <Name name={name} setName={setName} setVal={setVal} />
         </div>
       </div>
     );
-  }
-  else
-  {
+  } else {
     return (
       <div className="App">
         <div className="question-container">
-          {index !== 5 ? <Questions questions={questions} index={index} setIndex={setIndex} chosen={chosen} setChosen={setChosen} score={score} setScore={setScore} /> : <Score score={score} TotalQns={TotalQns} name={name}/>}
+          {index !== 5 ? (
+            <Questions
+              questions={questions}
+              index={index}
+              setIndex={setIndex}
+              chosen={chosen}
+              setChosen={setChosen}
+              score={score}
+              setScore={setScore}
+              wrong={wrong}
+              setWrong={setWrong}
+            />
+          ) : (
+            <Score score={score} TotalQns={TotalQns} name={name} wrong={wrong} />
+          )}
         </div>
       </div>
     );
